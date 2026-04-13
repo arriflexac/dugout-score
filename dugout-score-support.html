@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dugout Score — Support</title>
+<style>
+:root{--bg:#1a2e1a;--card:#2d4a2d;--accent:#f0c040;--cream:#f5f0e0;--muted:#8aaa8a;--green:#4a8c4a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--cream);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:24px 20px}
+h1{font-size:28px;color:var(--accent);margin-bottom:4px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:18px;color:var(--accent);margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--green)}
+p,li{font-size:15px;margin-bottom:10px}
+ul{padding-left:20px;margin-bottom:16px}
+li{margin-bottom:6px}
+a{color:var(--accent)}
+.card{background:var(--card);border-radius:10px;padding:18px;border:1px solid var(--green);margin-bottom:16px}
+.card h3{color:var(--accent);font-size:15px;margin-bottom:8px}
+.card p{margin-bottom:6px;font-size:14px}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:13px}
+.footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--green);font-size:12px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>⚾ Dugout Score</h1>
+<p class="sub">Support &amp; Help</p>
+
+<h2>Getting Started</h2>
+<p>Dugout Score is a game scoring app for Little League Minors baseball. Here's how to get up and running:</p>
+<ul>
+<li><strong>Set up your roster</strong> — Tap "Roster" in the navigation bar. Enter your team name, then add each player with their name, jersey number, and age.</li>
+<li><strong>Create a game</strong> — Tap "+ New Game" on the home screen. Enter the date, opponent name, and whether you're home or away. Reorder the batting lineup if needed, then tap "Start Game."</li>
+<li><strong>Score the game</strong> — Use the Ball, Strike, Foul, and In Play buttons to track each pitch. Or switch to Quick mode for faster scoring with Hit, Walk, Out, K, Run, and Error buttons.</li>
+<li><strong>View stats</strong> — Tap "Stats" for season totals or tap any completed game on the home screen to see per-game stats, at-bat logs, and position assignments.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="card">
+<h3>How do I back up my data?</h3>
+<p>On the home screen, scroll to the bottom and tap <strong>📤 Export Backup</strong>. This saves all your data (roster, games, stats) to a JSON file. To restore, tap <strong>📥 Import Backup</strong> and select your backup file.</p>
+</div>
+
+<div class="card">
+<h3>How do I correct a scoring mistake?</h3>
+<p>You have several options:</p>
+<ul>
+<li><strong>Undo</strong> — Tap the ↩ button to see recent actions and undo to any point.</li>
+<li><strong>Edit scoreboard</strong> — Tap any inning score cell on the scoreboard during a live game to adjust runs with +/− buttons.</li>
+<li><strong>Change batter</strong> — Tap "Change" on the At Bat card to skip to a different player in the lineup.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>How does the run cap work?</h3>
+<p>In innings 1 through 3, each half-inning is capped at 5 runs. Once 5 runs score, the half-inning ends automatically. Innings 4 and 5 have no run cap — play continues until 3 outs.</p>
+</div>
+
+<div class="card">
+<h3>How do pitch counts and rest days work?</h3>
+<p>Set each player's age in the roster. The app enforces the correct pitch limit per game (50 for ages 7–8, 75 for 9–10, 85 for 11). After a game, the Stats view shows how many rest days each pitcher needs and when they're available again.</p>
+</div>
+
+<div class="card">
+<h3>Can I change the league rules?</h3>
+<p>Yes. The game rules (innings, run cap, mercy rule, pitch limits, time limit) are configured as constants at the top of the app code. If your league uses different rules, these values can be adjusted.</p>
+</div>
+
+<div class="card">
+<h3>How do I export a PDF game report?</h3>
+<p>Open any completed game's stats view and tap <strong>📄 PDF</strong>. A print-formatted report opens in a new page. On iPhone, tap Share → Print → Save as PDF.</p>
+</div>
+
+<div class="card">
+<h3>Will I lose my data if I update the app?</h3>
+<p>Always export a backup before updating. After installing the new version, import your backup to restore all data. Your roster, games, and stats will be exactly as you left them.</p>
+</div>
+
+<div class="card">
+<h3>Does the app work offline?</h3>
+<p>Yes. After the initial load, the app works completely offline. No internet connection is needed during games. All data is stored locally on your device.</p>
+</div>
+
+<h2>Contact</h2>
+<p>For questions, bug reports, or feature requests, please email:</p>
+<p><a href="mailto:support@dugoutscore.com">support@dugoutscore.com</a></p>
+
+<div class="footer">
+<p>Dugout Score is not affi

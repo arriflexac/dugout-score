@@ -5,89 +5,238 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dugout Score — Support</title>
 <style>
-:root{--bg:#1a2e1a;--card:#2d4a2d;--accent:#f0c040;--cream:#f5f0e0;--muted:#8aaa8a;--green:#4a8c4a}
+:root{--bg:#1a2e1a;--card:#2d4a2d;--accent:#f0c040;--cream:#f5f0e0;--muted:#8aaa8a;--green:#4a8c4a;--gbright:#5cb85c;--red:#d9534f;--orange:#f0a030}
+@media(prefers-color-scheme:light){:root{--bg:#f0efe8;--card:#fff;--accent:#b8860b;--cream:#222;--muted:#777;--green:#3a7a3a;--gbright:#2d8a2d;--red:#c0392b;--orange:#d4850a}}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--cream);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
 .wrap{max-width:680px;margin:0 auto;padding:24px 20px}
 h1{font-size:28px;color:var(--accent);margin-bottom:4px}
 .sub{color:var(--muted);font-size:14px;margin-bottom:32px}
+.version{display:inline-block;background:var(--accent);color:#1a2e1a;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
 h2{font-size:18px;color:var(--accent);margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--green)}
+h3{font-size:15px;color:var(--gbright);margin:18px 0 6px}
 p,li{font-size:15px;margin-bottom:10px}
 ul{padding-left:20px;margin-bottom:16px}
 li{margin-bottom:6px}
 a{color:var(--accent)}
 .card{background:var(--card);border-radius:10px;padding:18px;border:1px solid var(--green);margin-bottom:16px}
-.card h3{color:var(--accent);font-size:15px;margin-bottom:8px}
+.card h3{color:var(--accent);font-size:15px;margin:0 0 8px}
 .card p{margin-bottom:6px;font-size:14px}
-code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:13px}
+.card ul{margin-bottom:0}
+.card li{font-size:14px;margin-bottom:4px}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:13px;border:1px solid var(--green)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th{background:var(--card);color:var(--accent);padding:8px 10px;text-align:left;border:1px solid var(--green);font-weight:700}
+td{padding:8px 10px;border:1px solid var(--green)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:700;margin:2px}
+.tag-g{background:var(--gbright);color:#fff}
+.tag-r{background:var(--red);color:#fff}
+.tag-a{background:var(--accent);color:#1a2e1a}
+.tag-o{background:var(--orange);color:#1a2e1a}
+.new{display:inline-block;background:var(--gbright);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle;text-transform:uppercase}
 .footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--green);font-size:12px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<h1>⚾ Dugout Score</h1>
+<h1>Dugout Score <span class="version">v1.1</span></h1>
 <p class="sub">Support &amp; Help</p>
 
+<!-- ─── GETTING STARTED ──────────────────────────────────────────────── -->
 <h2>Getting Started</h2>
 <p>Dugout Score is a game scoring app for Little League Minors baseball. Here's how to get up and running:</p>
 <ul>
-<li><strong>Set up your roster</strong> — Tap "Roster" in the navigation bar. Enter your team name, then add each player with their name, jersey number, and age.</li>
-<li><strong>Create a game</strong> — Tap "+ New Game" on the home screen. Enter the date, opponent name, and whether you're home or away. Reorder the batting lineup if needed, then tap "Start Game."</li>
-<li><strong>Score the game</strong> — Use the Ball, Strike, Foul, and In Play buttons to track each pitch. Or switch to Quick mode for faster scoring with Hit, Walk, Out, K, Run, and Error buttons.</li>
-<li><strong>View stats</strong> — Tap "Stats" for season totals or tap any completed game on the home screen to see per-game stats, at-bat logs, and position assignments.</li>
+<li><strong>Set up your roster</strong> &mdash; Tap the menu (&equiv;) &rarr; <strong>Roster</strong>. Enter your team name, then add each player with their name, jersey number, and age (7&ndash;12). You can change a player's age anytime by tapping the underlined <em>Age N</em> on their row.</li>
+<li><strong>Create a game</strong> &mdash; Tap <strong>+ New Game</strong> on the home screen. Enter the date, opponent name, and whether you're home or away. Reorder the batting lineup if needed, then tap <strong>Start Game</strong>.</li>
+<li><strong>Score the game</strong> &mdash; Use the Ball, Strike, Foul, and In Play buttons to track each pitch. Or switch to Quick mode for faster scoring with Hit, Walk, Out, K, Run, and Error buttons.</li>
+<li><strong>View stats</strong> &mdash; Tap <strong>Stats</strong> in the menu for season totals, or tap any completed game on the home screen to see per-game stats, at-bat logs, and position assignments.</li>
 </ul>
 
+<!-- ─── RULES-AWARE SCORING ──────────────────────────────────────────── -->
+<h2>Rules-Aware Scoring <span class="new">New in 1.1</span></h2>
+<p>The scoring engine enforces official Little League Minor Division rules. When a rule-based end condition is met, you'll see a prompt explaining the rule (with the official citation) and two choices:</p>
+
+<table>
+<tr><th>Condition</th><th>Rule</th><th>Your choices</th></tr>
+<tr><td>5 runs scored in a half-inning</td><td>Rule 5.07</td><td>End Half-Inning / Keep Playing</td></tr>
+<tr><td>Full roster has batted once</td><td>Rule 5.07</td><td>End Half-Inning / Keep Playing</td></tr>
+<tr><td>Walk-off win</td><td>Rule 4.11(c)</td><td>End Game / Keep Playing</td></tr>
+<tr><td>15-run lead after 3 innings</td><td>Rule 4.10(e)</td><td>End Game / Keep Playing</td></tr>
+<tr><td>10-run lead after 4 innings</td><td>Rule 4.10(e)</td><td>End Game / Keep Playing</td></tr>
+<tr><td>8-run lead after 5 innings</td><td>Rule 4.10(e)</td><td>End Game / Keep Playing</td></tr>
+<tr><td>6 innings complete (not tied)</td><td>Rule 4.10(a)</td><td>End Game / Keep Playing (extras)</td></tr>
+</table>
+
+<p>"Keep Playing" is there for when the umpire or coaches don't call the rule. The app won't re-prompt for the same condition in the same half-inning or game. Three outs always ends the half automatically&nbsp;&mdash; no prompt needed.</p>
+
+<!-- ─── PITCH COUNT TRACKING ─────────────────────────────────────────── -->
+<h2>Pitch Count Tracking</h2>
+
+<h3>Your Team's Pitchers</h3>
+<p>When your team is fielding, tap the <strong>OUR PITCHER</strong> card to select the current pitcher. Every pitch is counted. The card shows the running count with the age-based limit:</p>
+
+<table>
+<tr><th>League Age</th><th>Max Pitches / Game</th></tr>
+<tr><td>7&ndash;8</td><td>50</td></tr>
+<tr><td>9&ndash;10</td><td>75</td></tr>
+<tr><td>11&ndash;12</td><td>85</td></tr>
+</table>
+
+<p>The count turns orange at 80% of the limit and red at the limit. The <strong>Stats &rarr; Pitching</strong> tab shows required rest days and the earliest date each pitcher is available.</p>
+
+<h3>Opponent Pitchers <span class="new">New</span></h3>
+<p>When your team is batting, tap the <strong>OPP PITCHER</strong> card to enter the current opponent pitcher's jersey number. The app tracks their pitch count for the game. You can switch numbers at any time (e.g., when a reliever enters); each pitcher's count is tracked separately.</p>
+
+<!-- ─── MOUND VISITS ─────────────────────────────────────────────────── -->
+<h2>Mound Visits <span class="new">New in 1.1</span></h2>
+<p>The <strong>Visit</strong> button in the bottom toolbar logs a mound visit. Minor League limits (Rule 8.06):</p>
+<ul>
+<li><strong>Per inning:</strong> 2 visits (3rd visit = pitcher must be removed)</li>
+<li><strong>Per game:</strong> 3 visits (4th visit = pitcher must be removed)</li>
+</ul>
+<p>The button turns red when you've hit either limit. The per-inning counter resets when a new inning starts.</p>
+
+<!-- ─── INTENTIONAL WALK ─────────────────────────────────────────────── -->
+<h2>Intentional Walk <span class="new">New in 1.1</span></h2>
+<p>The <strong>IBB</strong> button (in pitch-by-pitch mode) issues an intentional walk per Rule 6.08(a)(2). It adds the correct number of balls to the active pitcher's pitch count, walks the batter, and forces runners on filled bases.</p>
+
+<!-- ─── CORRECTING MISTAKES ──────────────────────────────────────────── -->
+<h2>Correcting Mistakes</h2>
+
+<div class="card">
+<h3>Undo</h3>
+<p>Tap the <strong>&larr; N</strong> button to see the labeled undo history (up to 40 actions deep). Each entry shows what happened (e.g., "Ball 3", "Single", "Stolen Base"). Tap "Undo this" to roll back the most recent action. Undo restores the full game state.</p>
+</div>
+
+<div class="card">
+<h3>Edit Scoreboard</h3>
+<p>Tap any inning score cell on the live scoreboard to adjust runs with +/&minus; buttons. Each adjustment is undoable.</p>
+</div>
+
+<div class="card">
+<h3>Change Batter</h3>
+<p>Tap "Change" on the At Bat card to skip to a different player in the lineup.</p>
+</div>
+
+<div class="card">
+<h3>Reopen a Finished Game <span class="new">New</span></h3>
+<p>If a game was ended by mistake or you need to make corrections:</p>
+<ul>
+<li><strong>Immediately after ending:</strong> Tap <strong>&larr; Undo End Game</strong> on the FINAL screen.</li>
+<li><strong>Later:</strong> Open the game from Home &rarr; Game Stats &rarr; <strong>Reopen Game</strong>.</li>
+</ul>
+<p>All scoring state is preserved. Only one game can be live at a time.</p>
+</div>
+
+<!-- ─── BASERUNNERS ──────────────────────────────────────────────────── -->
+<h2>Baserunner Management</h2>
+<ul>
+<li><strong>Steal buttons</strong> (&rarr;2nd, &rarr;3rd, &rarr;Home) appear when a destination base is open.</li>
+<li><strong>CS/PO button</strong> on your runners records Caught Stealing or Picked Off.</li>
+<li><strong>Opponent runners</strong> are tracked as "OPP" on the diamond. Tap "Out" to remove them.</li>
+<li>Bases clear automatically when the half-inning changes.</li>
+</ul>
+
+<!-- ─── POSITIONS & MANDATORY PLAY ───────────────────────────────────── -->
+<h2>Defensive Positions &amp; Mandatory Play</h2>
+<p>Tap <strong>Pos</strong> during a live game to assign positions (P, C, 1B, 2B, 3B, SS, LF, CF, RF, EH) per player per half-inning. The <strong>Game Stats &rarr; Pos</strong> tab shows the full position grid and includes a mandatory play indicator that flags any player with fewer than 2 half-innings on defense. <span class="new">New in 1.1</span></p>
+
+<!-- ─── RULES REFERENCE ──────────────────────────────────────────────── -->
+<h2>Built-In Rules Reference <span class="new">New in 1.1</span></h2>
+<p>Tap <strong>menu &rarr; Rules</strong>, or the book icon during a live game, to open a searchable reference of every official Little League Minor Division rule that governs the app. Six chapters cover Game Length, Half-Inning End, Batting, Baserunning, Pitching, and Mandatory Play. Each rule includes the official citation and an explanation of how the app implements it.</p>
+
+<!-- ─── GAME TIMER ───────────────────────────────────────────────────── -->
+<h2>Game Timer</h2>
+<p>The timer auto-starts when a game is created. Tap &blacktriangleright;/&#9208; to pause/resume. It turns orange at 90 minutes and red at 105 minutes (the local-option time limit per Rule 4.10(c)(2)). The timer persists across app restarts.</p>
+
+<!-- ─── STATS & TRENDS ───────────────────────────────────────────────── -->
+<h2>Stats &amp; Trends</h2>
+<p>Per-game stats are available in four tabs: <strong>Hitting</strong> (AB, H, 1B&ndash;HR, RBI, BB, K, SB, AVG), <strong>Fielding</strong> (PO, A, E, FP%), <strong>Log</strong> (at-bat play-by-play), and <strong>Pos</strong> (positions + mandatory play). Season aggregates include OBP, SLG, pitching availability, and W-L-T record.</p>
+<p>The <strong>Trends</strong> view shows game-over-game line charts for team runs and opponent runs. Select any player to see their cumulative batting average trend.</p>
+
+<!-- ─── PDF REPORTS ───────────────────────────────────────────────────── -->
+<h2>PDF Reports</h2>
+<ul>
+<li><strong>Per-game:</strong> Tap PDF in Game Stats. Includes line score, hitting, fielding, pitch counts, at-bat log, and position assignments.</li>
+<li><strong>Season:</strong> Tap Season PDF in Stats. Includes W-L-T record, game log, cumulative hitting and fielding.</li>
+</ul>
+<p>Both generate a print-ready page. Use Share &rarr; Print &rarr; Save as PDF on iPhone.</p>
+
+<!-- ─── DATA MANAGEMENT ──────────────────────────────────────────────── -->
+<h2>Data Management</h2>
+<ul>
+<li><strong>Export:</strong> Home screen &rarr; Export. Saves all data (roster, games, stats) as a JSON file.</li>
+<li><strong>Import:</strong> Home screen &rarr; Import. Supports both the current format and legacy backups from the original HTML version of the app.</li>
+</ul>
+<p><strong>Tip:</strong> Always export a backup before updating the app.</p>
+
+<!-- ─── DARK & LIGHT MODE ────────────────────────────────────────────── -->
+<h2>Dark &amp; Light Mode</h2>
+<p>Tap the menu and select Light Mode / Dark Mode to toggle. Dark mode uses a deep green theme (great for evening games); light mode has a high-contrast background for direct sunlight.</p>
+
+<!-- ─── REQUIREMENTS ─────────────────────────────────────────────────── -->
+<h2>Requirements</h2>
+<ul>
+<li>iOS 17.0 or later</li>
+<li>iPhone (optimized) or iPad</li>
+<li>No internet connection required</li>
+<li>No account or sign-up required</li>
+</ul>
+
+<!-- ─── FAQ ───────────────────────────────────────────────────────────── -->
 <h2>Frequently Asked Questions</h2>
 
 <div class="card">
-<h3>How do I back up my data?</h3>
-<p>On the home screen, scroll to the bottom and tap <strong>📤 Export Backup</strong>. This saves all your data (roster, games, stats) to a JSON file. To restore, tap <strong>📥 Import Backup</strong> and select your backup file.</p>
+<h3>What happens if I close the app during a game?</h3>
+<p>The full game state is saved after every action. When you reopen the app, the live game card appears on the Home screen &mdash; tap it to resume exactly where you left off.</p>
 </div>
 
 <div class="card">
-<h3>How do I correct a scoring mistake?</h3>
-<p>You have several options:</p>
-<ul>
-<li><strong>Undo</strong> — Tap the ↩ button to see recent actions and undo to any point.</li>
-<li><strong>Edit scoreboard</strong> — Tap any inning score cell on the scoreboard during a live game to adjust runs with +/− buttons.</li>
-<li><strong>Change batter</strong> — Tap "Change" on the At Bat card to skip to a different player in the lineup.</li>
-</ul>
+<h3>The umpire didn't call the mercy rule / run cap. What do I do?</h3>
+<p>Tap "Keep Playing" when the prompt appears. The app will continue scoring without re-prompting for the same condition.</p>
 </div>
 
 <div class="card">
-<h3>How does the run cap work?</h3>
-<p>In innings 1 through 3, each half-inning is capped at 5 runs. Once 5 runs score, the half-inning ends automatically. Innings 4 and 5 have no run cap — play continues until 3 outs.</p>
+<h3>Can I have two games going at once?</h3>
+<p>No. Only one game can be live at a time. Finish or end the current game before starting a new one.</p>
 </div>
 
 <div class="card">
-<h3>How do pitch counts and rest days work?</h3>
-<p>Set each player's age in the roster. The app enforces the correct pitch limit per game (50 for ages 7–8, 75 for 9–10, 85 for 11). After a game, the Stats view shows how many rest days each pitcher needs and when they're available again.</p>
+<h3>How accurate are pitch counts in Quick mode?</h3>
+<p>Each Quick-mode action counts as 1 pitch. In reality, a walk is 4+ pitches and a strikeout is 3+. For accurate pitch counts, use Pitch mode.</p>
 </div>
 
 <div class="card">
-<h3>Can I change the league rules?</h3>
-<p>Yes. The game rules (innings, run cap, mercy rule, pitch limits, time limit) are configured as constants at the top of the app code. If your league uses different rules, these values can be adjusted.</p>
+<h3>Can I track stats for the opposing team's players?</h3>
+<p>The app tracks team-level runs, hits, and errors for the opponent, plus individual pitch counts by opponent pitcher number. Individual opponent batting stats are not tracked.</p>
 </div>
 
 <div class="card">
-<h3>How do I export a PDF game report?</h3>
-<p>Open any completed game's stats view and tap <strong>📄 PDF</strong>. A print-formatted report opens in a new page. On iPhone, tap Share → Print → Save as PDF.</p>
-</div>
-
-<div class="card">
-<h3>Will I lose my data if I update the app?</h3>
-<p>Always export a backup before updating. After installing the new version, import your backup to restore all data. Your roster, games, and stats will be exactly as you left them.</p>
+<h3>How do I transfer data to a new phone?</h3>
+<p>Export a JSON backup from the old phone (Home &rarr; Export). Transfer the file to the new phone (AirDrop, email, iCloud Drive, etc.). Open the app on the new phone and import the backup.</p>
 </div>
 
 <div class="card">
 <h3>Does the app work offline?</h3>
-<p>Yes. After the initial load, the app works completely offline. No internet connection is needed during games. All data is stored locally on your device.</p>
+<p>Yes. No internet connection is needed. All data is stored locally on your device.</p>
 </div>
 
+<!-- ─── PRIVACY ──────────────────────────────────────────────────────── -->
+<h2>Privacy Policy</h2>
+<p>Dugout Score does not collect, transmit, or share any personal data. All data is stored locally on your device and never leaves it unless you explicitly export a backup file. The app contains no analytics, no advertising, and no network requests.</p>
+
+<!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
 <h2>Contact</h2>
 <p>For questions, bug reports, or feature requests, please email:</p>
 <p><a href="mailto:support@dugoutscore.com">support@dugoutscore.com</a></p>
 
 <div class="footer">
-<p>Dugout Score is not affi
+<p>Dugout Score is not affiliated with or endorsed by Little League International.<br>
+Little League&reg; is a registered trademark of Little League Baseball, Incorporated.<br>
+&copy; 2026. All rights reserved. &middot; Version 1.1</p>
+</div>
+
+</div>
+</body>
+</html>

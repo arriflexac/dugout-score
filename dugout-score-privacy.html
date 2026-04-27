@@ -24,63 +24,77 @@ strong{color:var(--accent)}
 <div class="wrap">
 
 <h1>⚾ Dugout Score</h1>
-<p class="sub">Privacy Policy — Effective April 12, 2026</p>
+<p class="sub">Privacy Policy — Effective April 26, 2026 (v2.0)</p>
 
 <h2>Summary</h2>
-<p>Dugout Score does not collect, transmit, or share any personal data. All information you enter into the app stays on your device and is never sent to any server.</p>
+<p>Dugout Score keeps your scoring data private. By default, everything stays on your devices and in your private iCloud database — only you can see it. The app never sends data to advertisers, analytics services, or anyone except a couple of clearly-disclosed services described below.</p>
 
-<h2>Data Storage</h2>
-<p>All data you enter — including team names, player names, jersey numbers, player ages, game scores, and statistics — is stored exclusively in your device's local storage (localStorage). This data:</p>
+<h2>Data Stored On Your Device and In Your iCloud</h2>
+<p>Team rosters (player names, jersey numbers, ages), games (scores, plays, stats), seasons, and any settings you configure are stored locally on your iPhone or iPad. If iCloud is enabled on your device, this data also syncs to your <strong>private CloudKit database</strong> in iCloud, which is owned by you and not accessible to us or any third party. This sync lets you use the app on multiple devices signed into the same Apple ID.</p>
+
+<h2>Lineup Card Import — Cloud Scan</h2>
+<p>The app includes an optional feature called <strong>Cloud Scan</strong> that uses AI to read handwritten lineup-card photos. Cloud Scan is opt-in — it's not the default reading mode, and it only runs when you select it and choose a photo.</p>
+<p>When you use Cloud Scan, the photo you select is uploaded to a backend service we operate, which forwards it to <strong>Anthropic's Claude API</strong> to extract the lineup information. Photos are processed in real time and not retained beyond what's needed to return a result.</p>
 <ul>
-<li>Never leaves your device</li>
-<li>Is never transmitted over the internet</li>
-<li>Is never sent to our servers or any third-party servers</li>
-<li>Is never shared with advertisers, analytics providers, or any other parties</li>
-<li>Is accessible only to you on the device where you use the app</li>
+<li><strong>What's sent:</strong> the lineup-card photo and your team's roster vocabulary (so the AI can match handwriting to known names).</li>
+<li><strong>Where it goes:</strong> Anthropic, via our backend. <a href="https://www.anthropic.com/legal/privacy" target="_blank">Anthropic's privacy policy</a>.</li>
+<li><strong>What stays local:</strong> the on-device "On Device" reading mode (the default) is purely local — photos never leave your phone in that mode.</li>
 </ul>
 
-<h2>Data Collection</h2>
-<p><strong>We do not collect any data.</strong> Specifically, Dugout Score does not collect:</p>
+<h2>Bring Your Own Key (Optional)</h2>
+<p>As an alternative to buying scan packs, you can paste your own Anthropic API key into the app's "Use My Key" panel. The key is stored only in your iOS Keychain on the device where you entered it. We never see, transmit, or store it. When this mode is selected, your photo is sent directly from the app to Anthropic using your key.</p>
+
+<h2>In-App Purchases</h2>
+<p>If you purchase scan packs, Apple's <strong>StoreKit</strong> handles the transaction. Apple shares with us only what's necessary to credit your account: a signed transaction receipt that contains the product ID and a transaction identifier. We use it to grant the appropriate number of scans on our backend. We never see your name, email, billing address, or payment information.</p>
+<p>To track your scan balance across reinstalls and devices, our backend stores an <strong>anonymous identifier</strong> (a random UUID generated on first launch and kept in your device's Keychain) along with your remaining balance and the list of redeemed transaction IDs. This identifier is not linked to your Apple ID, name, or any other personal information.</p>
+
+<h2>Data We Do Not Collect</h2>
 <ul>
-<li>Personal information (names, email addresses, phone numbers, or physical addresses)</li>
+<li>Personal information (we never ask for your name, email, phone number, or address)</li>
 <li>Location data</li>
-<li>Device identifiers or fingerprints</li>
-<li>Usage analytics or behavioral data</li>
-<li>Crash reports</li>
-<li>Advertising identifiers</li>
-<li>Health or fitness data</li>
-<li>Financial or payment information</li>
-<li>Contacts, photos, or other device data</li>
+<li>Device identifiers, advertising IDs, or fingerprints</li>
+<li>Usage analytics or behavioral tracking</li>
+<li>Crash reports tied to identity</li>
+<li>Contacts or any data outside the app</li>
 </ul>
 
 <h2>Third-Party Services</h2>
-<p>Dugout Score does not integrate with any third-party analytics, advertising, or tracking services. The app does not contain any ads.</p>
-<p>The app loads Google Fonts (Oswald and Courier Prime) for typography. This requires a single network request to Google's font servers on first load. Google's privacy policy regarding web fonts is available at <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>. The app functions fully without these fonts if the network is unavailable.</p>
-
-<h2>Export and Backup</h2>
-<p>The app includes an export feature that saves your data as a JSON file to your device. This file is created and stored locally — it is not uploaded to any server. You control what you do with exported files. If you choose to share a backup file (via email, messaging, or cloud storage), you are responsible for the privacy of that shared data.</p>
+<ul>
+<li><strong>Apple iCloud / CloudKit</strong> — syncs your data to your own private database. Apple's privacy practices apply.</li>
+<li><strong>Apple StoreKit</strong> — processes in-app purchases.</li>
+<li><strong>Supabase</strong> — hosts our backend (anonymous user balances, IAP receipt validation). <a href="https://supabase.com/privacy" target="_blank">Supabase's privacy policy</a>.</li>
+<li><strong>Anthropic</strong> — runs the Claude AI used by Cloud Scan when you opt in. <a href="https://www.anthropic.com/legal/privacy" target="_blank">Anthropic's privacy policy</a>.</li>
+</ul>
+<p>The app contains no advertising, no analytics SDKs, and no behavioral trackers.</p>
 
 <h2>Children's Privacy</h2>
-<p>While Dugout Score is designed to score youth baseball games, the app is intended to be operated by parents and coaches — not by children directly. The app does not knowingly collect any personal information from children under 13. Player names and ages entered into the app are stored only on the device and are never transmitted externally.</p>
+<p>Dugout Score is designed to score youth baseball games but is intended to be operated by parents and coaches — not by children directly. The app does not knowingly collect any personal information from children under 13. Player names and ages entered into the app are stored only on the device and your private iCloud, and are never transmitted to advertisers, analytics services, or any third party other than the disclosed services above (which only see them as part of the lineup-card OCR if you choose Cloud Scan).</p>
 
-<h2>Data Deletion</h2>
-<p>You can delete all app data at any time by:</p>
+<h2>Export, Backup, and Deletion</h2>
+<p>The app includes an export feature that saves all your data as a JSON file to your device. This file is created locally and is not uploaded anywhere. If you choose to share an exported backup (via email, messaging, or cloud storage), you are responsible for the privacy of that shared data.</p>
+<p>You can delete data at any time:</p>
 <ul>
-<li>Deleting individual games using the delete button on the home screen</li>
-<li>Removing individual players from the roster</li>
-<li>Clearing your browser's or app's local storage/website data through your device settings</li>
-<li>Deleting the app from your device, which removes all associated local storage data</li>
+<li>Delete a game or season — moves it to Recently Deleted; auto-purges after 30 days, or tap Delete Permanently.</li>
+<li>Delete the app from your device — removes the local store. iCloud-synced data remains in your iCloud until you turn off iCloud for Dugout Score in Settings → [Your Name] → iCloud → Apps Using iCloud, or until you sign out of iCloud entirely.</li>
+<li>Email <a href="mailto:privacy@dugoutscore.com">privacy@dugoutscore.com</a> to request deletion of your anonymous IAP balance record on our backend (we'll need the anonymous UUID, which you can find listed in your Keychain via a developer tool — or you can simply delete the app, since the UUID was only known to your device).</li>
 </ul>
 
 <h2>Security</h2>
-<p>Because all data is stored locally on your device and never transmitted, your data is protected by your device's own security measures (passcode, Face ID, Touch ID, encryption). We recommend keeping your device secured with a passcode or biometric lock.</p>
+<p>Local data is protected by your device's own security (passcode, Face ID, Touch ID, encryption). iCloud-synced data is protected by your iCloud security and end-to-end encryption settings. API requests to our backend and to Anthropic use HTTPS.</p>
 
 <h2>Changes to This Policy</h2>
-<p>If we make changes to this privacy policy, we will update the effective date at the top of this page. Since the app does not collect data, we have no way to notify you of changes directly — we encourage you to review this page periodically.</p>
+<p>If we make changes to this privacy policy, we'll update the effective date at the top of this page. We encourage you to review this page periodically.</p>
 
 <h2>Contact</h2>
 <p>If you have questions about this privacy policy, please contact:</p>
 <p><a href="mailto:privacy@dugoutscore.com">privacy@dugoutscore.com</a></p>
 
 <div class="footer">
-<p>Dugout Score is not affi
+<p>Dugout Score is not affiliated with or endorsed by Little League International.<br>
+Little League® is a registered trademark of Little League Baseball, Incorporated.<br>
+&copy; 2026. All rights reserved. &middot; Version 2.0</p>
+</div>
+
+</div>
+</body>
+</html>

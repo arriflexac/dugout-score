@@ -40,7 +40,7 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <body>
 <div class="wrap">
 
-<h1>Dugout Score <span class="version">v1.1</span></h1>
+<h1>Dugout Score <span class="version">v2.0</span></h1>
 <p class="sub">Support &amp; Help</p>
 
 <!-- ─── GETTING STARTED ──────────────────────────────────────────────── -->
@@ -48,13 +48,47 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <p>Dugout Score is a game scoring app for Little League Minors baseball. Here's how to get up and running:</p>
 <ul>
 <li><strong>Set up your roster</strong> &mdash; Tap the menu (&equiv;) &rarr; <strong>Roster</strong>. Enter your team name, then add each player with their name, jersey number, and age (7&ndash;12). You can change a player's age anytime by tapping the underlined <em>Age N</em> on their row.</li>
-<li><strong>Create a game</strong> &mdash; Tap <strong>+ New Game</strong> on the home screen. Enter the date, opponent name, and whether you're home or away. Reorder the batting lineup if needed, then tap <strong>Start Game</strong>.</li>
+<li><strong>Create a game</strong> &mdash; Tap <strong>+ New Game</strong> on the home screen. Enter the date, opponent name, and whether you're home or away. Tap <strong>Import from Photo</strong> to fill in the batting order and positions from a photo of your lineup card, or set them manually. Then tap <strong>Start Game</strong>.</li>
 <li><strong>Score the game</strong> &mdash; Use the Ball, Strike, Foul, and In Play buttons to track each pitch. Or switch to Quick mode for faster scoring with Hit, Walk, Out, K, Run, and Error buttons.</li>
 <li><strong>View stats</strong> &mdash; Tap <strong>Stats</strong> in the menu for season totals, or tap any completed game on the home screen to see per-game stats, at-bat logs, and position assignments.</li>
 </ul>
 
+<!-- ─── LINEUP IMPORT ────────────────────────────────────────────────── -->
+<h2>Lineup Card Import <span class="new">New in 2.0</span></h2>
+<p>On the <strong>New Game</strong> screen, tap <strong>Import from Photo</strong> to read your handwritten lineup card with the camera or photo library. The app extracts the batting order, jersey numbers, opponent name, Home/Away setting, and per-inning fielding positions, then drops you into a review sheet to confirm or edit each row before applying.</p>
+
+<h3>How to Read the Card</h3>
+<p>The Import sheet shows two reading modes — pick whichever fits the card:</p>
+<ul>
+<li><strong>On Device</strong> (default, free) &mdash; uses Apple's on-device handwriting recognition. Photos never leave your phone. Accuracy is around 88% on real-world cards.</li>
+<li><strong>Cloud Scan</strong> (paid) &mdash; sends the photo to Anthropic's Claude AI for processing. Tougher handwriting (small or pencil cells) reads more reliably. 100% accuracy on our test cards. Two ways to pay:
+  <ul>
+    <li><strong>Buy Scans</strong> &mdash; one-time consumable in-app purchases (20 / 50 / 100 scans). Tap Restore on a new device to recover unused scans.</li>
+    <li><strong>Use My Key</strong> &mdash; bring your own Anthropic API key from <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>. Anthropic bills you directly (~$0.02 per scan). The key is stored only in your iOS Keychain.</li>
+  </ul>
+</li>
+</ul>
+
+<h3>Review Sheet</h3>
+<p>After the photo is read, each row shows the extracted name + jersey + position picks. The app fuzzy-matches names against your roster and color-codes match confidence (green &ge; 80%, orange &ge; 50%, red below). Tap any row to pick a different player, skip the row, or override an inning's position. Tap <strong>Apply</strong> to commit the result to the New Game form.</p>
+
+<!-- ─── ICLOUD SYNC ──────────────────────────────────────────────────── -->
+<h2>iCloud Sync <span class="new">New in 2.0</span></h2>
+<p>If you're signed into iCloud, your roster, games, seasons, and stats sync to your <strong>private CloudKit database</strong> automatically. Sign into the same Apple ID on a second device, install the app, and your data appears within a minute.</p>
+<p>To turn off sync (the app keeps working locally): Settings &rarr; [Your Name] &rarr; iCloud &rarr; Apps Using iCloud &rarr; toggle Dugout Score off.</p>
+
+<!-- ─── RECENTLY DELETED ─────────────────────────────────────────────── -->
+<h2>Recently Deleted <span class="new">New in 2.0</span></h2>
+<p>Deleting a game or season no longer wipes it instantly &mdash; it goes to a <strong>Recently Deleted</strong> bin for 30 days. From the Home screen &rarr; Data Management &rarr; <strong>Recently Deleted</strong>, you can:</p>
+<ul>
+<li>See remaining days before auto-purge (red countdown in the last 3 days)</li>
+<li>Tap <strong>Restore</strong> to bring an item back exactly as it was, including its season membership</li>
+<li>Tap <strong>Delete Permanently</strong> if you're sure</li>
+</ul>
+<p>After 30 days, items are removed for good on the next app launch.</p>
+
 <!-- ─── RULES-AWARE SCORING ──────────────────────────────────────────── -->
-<h2>Rules-Aware Scoring <span class="new">New in 1.1</span></h2>
+<h2>Rules-Aware Scoring</h2>
 <p>The scoring engine enforces official Little League Minor Division rules. When a rule-based end condition is met, you'll see a prompt explaining the rule (with the official citation) and two choices:</p>
 
 <table>
@@ -85,11 +119,11 @@ td{padding:8px 10px;border:1px solid var(--green)}
 
 <p>The count turns orange at 80% of the limit and red at the limit. The <strong>Stats &rarr; Pitching</strong> tab shows required rest days and the earliest date each pitcher is available.</p>
 
-<h3>Opponent Pitchers <span class="new">New</span></h3>
+<h3>Opponent Pitchers</h3>
 <p>When your team is batting, tap the <strong>OPP PITCHER</strong> card to enter the current opponent pitcher's jersey number. The app tracks their pitch count for the game. You can switch numbers at any time (e.g., when a reliever enters); each pitcher's count is tracked separately.</p>
 
 <!-- ─── MOUND VISITS ─────────────────────────────────────────────────── -->
-<h2>Mound Visits <span class="new">New in 1.1</span></h2>
+<h2>Mound Visits</h2>
 <p>The <strong>Visit</strong> button in the bottom toolbar logs a mound visit. Minor League limits (Rule 8.06):</p>
 <ul>
 <li><strong>Per inning:</strong> 2 visits (3rd visit = pitcher must be removed)</li>
@@ -98,7 +132,7 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <p>The button turns red when you've hit either limit. The per-inning counter resets when a new inning starts.</p>
 
 <!-- ─── INTENTIONAL WALK ─────────────────────────────────────────────── -->
-<h2>Intentional Walk <span class="new">New in 1.1</span></h2>
+<h2>Intentional Walk</h2>
 <p>The <strong>IBB</strong> button (in pitch-by-pitch mode) issues an intentional walk per Rule 6.08(a)(2). It adds the correct number of balls to the active pitcher's pitch count, walks the batter, and forces runners on filled bases.</p>
 
 <!-- ─── CORRECTING MISTAKES ──────────────────────────────────────────── -->
@@ -120,13 +154,18 @@ td{padding:8px 10px;border:1px solid var(--green)}
 </div>
 
 <div class="card">
-<h3>Reopen a Finished Game <span class="new">New</span></h3>
+<h3>Reopen a Finished Game</h3>
 <p>If a game was ended by mistake or you need to make corrections:</p>
 <ul>
 <li><strong>Immediately after ending:</strong> Tap <strong>&larr; Undo End Game</strong> on the FINAL screen.</li>
 <li><strong>Later:</strong> Open the game from Home &rarr; Game Stats &rarr; <strong>Reopen Game</strong>.</li>
 </ul>
 <p>All scoring state is preserved. Only one game can be live at a time.</p>
+</div>
+
+<div class="card">
+<h3>Recover a Deleted Game or Season <span class="new">New</span></h3>
+<p>Home &rarr; Data Management &rarr; <strong>Recently Deleted</strong>. Tap Restore on the row to bring it back. Items auto-purge after 30 days.</p>
 </div>
 
 <!-- ─── BASERUNNERS ──────────────────────────────────────────────────── -->
@@ -140,10 +179,10 @@ td{padding:8px 10px;border:1px solid var(--green)}
 
 <!-- ─── POSITIONS & MANDATORY PLAY ───────────────────────────────────── -->
 <h2>Defensive Positions &amp; Mandatory Play</h2>
-<p>Tap <strong>Pos</strong> during a live game to assign positions (P, C, 1B, 2B, 3B, SS, LF, CF, RF, EH) per player per half-inning. The <strong>Game Stats &rarr; Pos</strong> tab shows the full position grid and includes a mandatory play indicator that flags any player with fewer than 2 half-innings on defense. <span class="new">New in 1.1</span></p>
+<p>Tap <strong>Pos</strong> during a live game to assign positions (P, C, 1B, 2B, 3B, SS, LF, CF, RF, EH) per player per half-inning. The <strong>Game Stats &rarr; Pos</strong> tab shows the full position grid and includes a mandatory play indicator that flags any player with fewer than 2 half-innings on defense.</p>
 
 <!-- ─── RULES REFERENCE ──────────────────────────────────────────────── -->
-<h2>Built-In Rules Reference <span class="new">New in 1.1</span></h2>
+<h2>Built-In Rules Reference</h2>
 <p>Tap <strong>menu &rarr; Rules</strong>, or the book icon during a live game, to open a searchable reference of every official Little League Minor Division rule that governs the app. Six chapters cover Game Length, Half-Inning End, Batting, Baserunning, Pitching, and Mandatory Play. Each rule includes the official citation and an explanation of how the app implements it.</p>
 
 <!-- ─── GAME TIMER ───────────────────────────────────────────────────── -->
@@ -167,9 +206,10 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <h2>Data Management</h2>
 <ul>
 <li><strong>Export:</strong> Home screen &rarr; Export. Saves all data (roster, games, stats) as a JSON file.</li>
-<li><strong>Import:</strong> Home screen &rarr; Import. Supports both the current format and legacy backups from the original HTML version of the app.</li>
+<li><strong>Import:</strong> Home screen &rarr; Import. Supports both the current format and legacy backups from earlier versions.</li>
+<li><strong>Recently Deleted:</strong> Home screen &rarr; Recently Deleted. Recover or permanently delete items within 30 days.</li>
 </ul>
-<p><strong>Tip:</strong> Always export a backup before updating the app.</p>
+<p><strong>Tip:</strong> iCloud sync covers most cases, but exporting a JSON backup before a major event (e.g., switching devices, end of season) is a good habit.</p>
 
 <!-- ─── DARK & LIGHT MODE ────────────────────────────────────────────── -->
 <h2>Dark &amp; Light Mode</h2>
@@ -180,8 +220,8 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <ul>
 <li>iOS 17.0 or later</li>
 <li>iPhone (optimized) or iPad</li>
-<li>No internet connection required</li>
-<li>No account or sign-up required</li>
+<li>iCloud sign-in is recommended for cross-device sync (the app works locally without it)</li>
+<li>Cloud Scan requires an internet connection and either purchased scan packs or your own Anthropic API key</li>
 </ul>
 
 <!-- ─── FAQ ───────────────────────────────────────────────────────────── -->
@@ -214,17 +254,27 @@ td{padding:8px 10px;border:1px solid var(--green)}
 
 <div class="card">
 <h3>How do I transfer data to a new phone?</h3>
-<p>Export a JSON backup from the old phone (Home &rarr; Export). Transfer the file to the new phone (AirDrop, email, iCloud Drive, etc.). Open the app on the new phone and import the backup.</p>
+<p>The easiest way is iCloud sync &mdash; sign into the same Apple ID on the new phone, install Dugout Score, and your data appears within a minute. As a backup option, export a JSON file (Home &rarr; Export) and import it on the new phone.</p>
 </div>
 
 <div class="card">
 <h3>Does the app work offline?</h3>
-<p>Yes. No internet connection is needed. All data is stored locally on your device.</p>
+<p>Yes for scoring, stats, and data management. Cloud Scan requires the internet; iCloud sync requires an internet connection to push and pull updates (changes made offline sync once you reconnect).</p>
+</div>
+
+<div class="card">
+<h3>What does Cloud Scan cost?</h3>
+<p>Three pack sizes: 20 scans for $0.99, 50 for $2.99, or 100 for $4.99 (one-time purchases, no subscriptions, scans don't expire). Or bring your own Anthropic API key and pay Anthropic directly (~$0.02 per scan).</p>
+</div>
+
+<div class="card">
+<h3>Where are deleted games?</h3>
+<p>Recently Deleted, accessible from Data Management on the Home screen. Items stay there for 30 days before they're auto-purged.</p>
 </div>
 
 <!-- ─── PRIVACY ──────────────────────────────────────────────────────── -->
 <h2>Privacy Policy</h2>
-<p>Dugout Score does not collect, transmit, or share any personal data. All data is stored locally on your device and never leaves it unless you explicitly export a backup file. The app contains no analytics, no advertising, and no network requests.</p>
+<p>By default, your data stays on your devices and in your private iCloud database &mdash; only you can see it. Cloud Scan optionally sends lineup-card photos to Anthropic when you choose it. The app contains no analytics, no advertising, and no behavioral trackers. <a href="dugout-score-privacy.html">Read the full privacy policy</a>.</p>
 
 <!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
 <h2>Contact</h2>
@@ -234,7 +284,7 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <div class="footer">
 <p>Dugout Score is not affiliated with or endorsed by Little League International.<br>
 Little League&reg; is a registered trademark of Little League Baseball, Incorporated.<br>
-&copy; 2026. All rights reserved. &middot; Version 1.1</p>
+&copy; 2026. All rights reserved. &middot; Version 2.0</p>
 </div>
 
 </div>

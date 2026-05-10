@@ -40,21 +40,21 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <body>
 <div class="wrap">
 
-<h1>Dugout Score <span class="version">v2.0</span></h1>
+<h1>Dugout Score <span class="version">v2.1</span></h1>
 <p class="sub">Support &amp; Help</p>
 
 <!-- ─── GETTING STARTED ──────────────────────────────────────────────── -->
 <h2>Getting Started</h2>
 <p>Dugout Score is a game scoring app for Little League Minors baseball. Here's how to get up and running:</p>
 <ul>
-<li><strong>Set up your roster</strong> &mdash; Tap the menu (&equiv;) &rarr; <strong>Roster</strong>. Enter your team name, then add each player with their name, jersey number, and age (7&ndash;12). You can change a player's age anytime by tapping the underlined <em>Age N</em> on their row.</li>
+<li><strong>Set up your roster</strong> &mdash; Tap the menu (&equiv;) &rarr; <strong>Roster</strong>. Enter your team name, then add each player with their name, jersey number, and age (7&ndash;12). Tap any player row to bring up an edit sheet for changing name, number, or age later.</li>
 <li><strong>Create a game</strong> &mdash; Tap <strong>+ New Game</strong> on the home screen. Enter the date, opponent name, and whether you're home or away. Tap <strong>Import from Photo</strong> to fill in the batting order and positions from a photo of your lineup card, or set them manually. Then tap <strong>Start Game</strong>.</li>
 <li><strong>Score the game</strong> &mdash; Use the Ball, Strike, Foul, and In Play buttons to track each pitch. Or switch to Quick mode for faster scoring with Hit, Walk, Out, K, Run, and Error buttons.</li>
 <li><strong>View stats</strong> &mdash; Tap <strong>Stats</strong> in the menu for season totals, or tap any completed game on the home screen to see per-game stats, at-bat logs, and position assignments.</li>
 </ul>
 
 <!-- ─── LINEUP IMPORT ────────────────────────────────────────────────── -->
-<h2>Lineup Card Import <span class="new">New in 2.0</span></h2>
+<h2>Lineup Card Import</h2>
 <p>On the <strong>New Game</strong> screen, tap <strong>Import from Photo</strong> to read your handwritten lineup card with the camera or photo library. The app extracts the batting order, jersey numbers, opponent name, Home/Away setting, and per-inning fielding positions, then drops you into a review sheet to confirm or edit each row before applying.</p>
 
 <h3>How to Read the Card</h3>
@@ -73,12 +73,12 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <p>After the photo is read, each row shows the extracted name + jersey + position picks. The app fuzzy-matches names against your roster and color-codes match confidence (green &ge; 80%, orange &ge; 50%, red below). Tap any row to pick a different player, skip the row, or override an inning's position. Tap <strong>Apply</strong> to commit the result to the New Game form.</p>
 
 <!-- ─── ICLOUD SYNC ──────────────────────────────────────────────────── -->
-<h2>iCloud Sync <span class="new">New in 2.0</span></h2>
+<h2>iCloud Sync</h2>
 <p>If you're signed into iCloud, your roster, games, seasons, and stats sync to your <strong>private CloudKit database</strong> automatically. Sign into the same Apple ID on a second device, install the app, and your data appears within a minute.</p>
 <p>To turn off sync (the app keeps working locally): Settings &rarr; [Your Name] &rarr; iCloud &rarr; Apps Using iCloud &rarr; toggle Dugout Score off.</p>
 
 <!-- ─── RECENTLY DELETED ─────────────────────────────────────────────── -->
-<h2>Recently Deleted <span class="new">New in 2.0</span></h2>
+<h2>Recently Deleted</h2>
 <p>Deleting a game or season no longer wipes it instantly &mdash; it goes to a <strong>Recently Deleted</strong> bin for 30 days. From the Home screen &rarr; Data Management &rarr; <strong>Recently Deleted</strong>, you can:</p>
 <ul>
 <li>See remaining days before auto-purge (red countdown in the last 3 days)</li>
@@ -86,6 +86,44 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <li>Tap <strong>Delete Permanently</strong> if you're sure</li>
 </ul>
 <p>After 30 days, items are removed for good on the next app launch.</p>
+
+<!-- ─── PLAY-BY-PLAY ─────────────────────────────────────────────────── -->
+<h2>Play-by-Play <span class="new">New in 2.1</span></h2>
+<p>Tap <strong>PBP</strong> in the bottom toolbar during a live game for a broadcaster-style narration of every event so far. Each line is a one-sentence description &mdash; "Emilio Ramos (#47) doubles to left field on a 2-1 count, drives in two, Ronin Gant (#67) tags from third, scores. (Tigers 4, Orioles 2) [Lead change]" &mdash; that reads like a real scorebook narrator.</p>
+
+<h3>What gets logged</h3>
+<ul>
+<li>Every plate appearance (hits, outs, walks, strikeouts, hit-by-pitch, sacrifice flies)</li>
+<li>Stolen bases, caught stealing, pickoffs, and runs scored</li>
+<li>Pitcher changes, mound visits, intentional walks</li>
+<li>End of half-innings and end of the game (with the winning team)</li>
+<li>Manual scoreboard edits</li>
+</ul>
+
+<h3>Filters</h3>
+<p>The live PBP sheet has three controls above the feed:</p>
+<ul>
+<li><strong>Scope</strong> &mdash; Current Half / Current Inning / Whole Game.</li>
+<li><strong>Search</strong> &mdash; case-insensitive substring match against any line. Useful for finding a player ("smith"), a play type ("double play"), or a base ("home").</li>
+<li><strong>Scoring</strong> chip &mdash; reduces the feed to plays that put a run on the board.</li>
+</ul>
+
+<h3>Tap a row for context</h3>
+<p>Plays anchored to a specific batter show a chevron on the right. Tap the row for a sheet with the full headline, that batter's stat line so far this game (PA, AB, H, 2B, 3B, HR, R, RBI, BB, K, SB, SAC), and a spray-chart dot at the recorded contact point.</p>
+
+<h3>Game Stats &amp; PDF</h3>
+<p>The Game Stats screen has a <strong>PBP</strong> tab (replacing the old Log tab) with the same feed, search, and Scoring filter for any completed game. Tap <strong>PDF</strong> for a chronological print-ready export. Finished games also get a recap card at the top with the final score, top hitter, most-RBI player, and the pitcher who threw the most pitches.</p>
+
+<h3>Older games</h3>
+<p>Games scored before v2.1 don't have a live feed. The app reconstructs one from the at-bat log; backfilled rows show "&mdash;" instead of a timestamp and a small note at the top explains the reconstruction.</p>
+
+<h3>Opponent jerseys</h3>
+<p>So opponent at-bats and fielders aren't anonymous in the feed:</p>
+<ul>
+<li><strong>BAT #?</strong> pill near home plate &mdash; tap to enter the current opponent batter's jersey number; it rolls over after each PA.</li>
+<li><strong>Diamond bubbles</strong> &mdash; when the opponent is fielding, tap any defensive position to enter that fielder's jersey number.</li>
+<li>Setting the opponent pitcher from either the on-field bubble or the side panel updates the other automatically.</li>
+</ul>
 
 <!-- ─── RULES-AWARE SCORING ──────────────────────────────────────────── -->
 <h2>Rules-Aware Scoring</h2>
@@ -164,7 +202,7 @@ td{padding:8px 10px;border:1px solid var(--green)}
 </div>
 
 <div class="card">
-<h3>Recover a Deleted Game or Season <span class="new">New</span></h3>
+<h3>Recover a Deleted Game or Season</h3>
 <p>Home &rarr; Data Management &rarr; <strong>Recently Deleted</strong>. Tap Restore on the row to bring it back. Items auto-purge after 30 days.</p>
 </div>
 
@@ -191,13 +229,14 @@ td{padding:8px 10px;border:1px solid var(--green)}
 
 <!-- ─── STATS & TRENDS ───────────────────────────────────────────────── -->
 <h2>Stats &amp; Trends</h2>
-<p>Per-game stats are available in four tabs: <strong>Hitting</strong> (AB, H, 1B&ndash;HR, RBI, BB, K, SB, AVG), <strong>Fielding</strong> (PO, A, E, FP%), <strong>Log</strong> (at-bat play-by-play), and <strong>Pos</strong> (positions + mandatory play). Season aggregates include OBP, SLG, pitching availability, and W-L-T record.</p>
+<p>Per-game stats are available in four tabs: <strong>Hitting</strong> (AB, H, 1B&ndash;HR, RBI, BB, K, SB, AVG), <strong>Fielding</strong> (PO, A, E, FP%), <strong>PBP</strong> (full broadcaster-style play-by-play feed with search, Scoring filter, tap-for-context, and PDF export), and <strong>Pos</strong> (positions + mandatory play). Season aggregates include OBP, SLG, pitching availability, and W-L-T record.</p>
 <p>The <strong>Trends</strong> view shows game-over-game line charts for team runs and opponent runs. Select any player to see their cumulative batting average trend.</p>
 
 <!-- ─── PDF REPORTS ───────────────────────────────────────────────────── -->
 <h2>PDF Reports</h2>
 <ul>
-<li><strong>Per-game:</strong> Tap PDF in Game Stats. Includes line score, hitting, fielding, pitch counts, at-bat log, and position assignments.</li>
+<li><strong>Per-game:</strong> Tap PDF in Game Stats. Includes line score, hitting, fielding, pitch counts, and position assignments.</li>
+<li><strong>Per-game play-by-play:</strong> The PBP tab has its own PDF button for a chronological export of every event in the game.</li>
 <li><strong>Season:</strong> Tap Season PDF in Stats. Includes W-L-T record, game log, cumulative hitting and fielding.</li>
 </ul>
 <p>Both generate a print-ready page. Use Share &rarr; Print &rarr; Save as PDF on iPhone.</p>
@@ -284,7 +323,7 @@ td{padding:8px 10px;border:1px solid var(--green)}
 <div class="footer">
 <p>Dugout Score is not affiliated with or endorsed by Little League International.<br>
 Little League&reg; is a registered trademark of Little League Baseball, Incorporated.<br>
-&copy; 2026. All rights reserved. &middot; Version 2.0</p>
+&copy; 2026. All rights reserved. &middot; Version 2.1</p>
 </div>
 
 </div>
